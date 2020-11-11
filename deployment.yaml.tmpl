@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rsyslog-ef
+  labels:
+    app: rsyslog-ef
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rsyslog-ef
+  template:
+    metadata:
+      labels:
+        app: rsyslog-ef
+    spec:
+      containers:
+      - name: rsyslog-ef
+        image: rsyslog/syslog_appliance_alpine:8.36.0-3.7
+        env:
+        - name: RSYSLOG_CONFIG_BASE64
+          value: $RSYSLOG_CONFIG_BASE64
+        ports:
+        - containerPort: 514
+
