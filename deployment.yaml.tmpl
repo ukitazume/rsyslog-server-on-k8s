@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: rsyslog-ef
-        image: rsyslog/syslog_appliance_alpine:8.36.0-3.7
+        image: ukitazume/rsyslog:latest
         env:
         - name: RSYSLOG_CONFIG_BASE64
           value: $RSYSLOG_CONFIG_BASE64
